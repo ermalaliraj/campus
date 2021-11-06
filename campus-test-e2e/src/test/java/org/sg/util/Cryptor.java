@@ -1,6 +1,5 @@
 package org.sg.util;
 
-import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.codec.binary.Base64;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -11,7 +10,6 @@ import javax.crypto.SecretKeyFactory;
 import javax.crypto.spec.DESedeKeySpec;
 import java.security.spec.KeySpec;
 
-@Slf4j
 public class Cryptor {
 
     private static final Logger logger = LoggerFactory.getLogger(Cryptor.class);

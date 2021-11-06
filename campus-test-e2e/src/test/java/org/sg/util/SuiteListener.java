@@ -7,7 +7,6 @@ import org.slf4j.LoggerFactory;
 import org.testng.ISuite;
 import org.testng.ISuiteListener;
 
-@Slf4j
 public class SuiteListener implements ISuiteListener {
 
     private static final Logger logger = LoggerFactory.getLogger(SuiteListener.class);

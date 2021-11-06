@@ -7,7 +7,6 @@ import org.testng.ITestContext;
 import org.testng.ITestListener;
 import org.testng.ITestResult;
 
-@Slf4j
 public class TestListener implements ITestListener {
 
     private static final Logger logger = LoggerFactory.getLogger(TestListener.class);
@@ -39,11 +38,11 @@ public class TestListener implements ITestListener {
 
     @Override
     public void onStart(ITestContext context) {
-        logger.debug("onStart");
+        logger.debug("TestListener started");
     }
 
     @Override
     public void onFinish(ITestContext context) {
-        logger.debug("onFinish");
+        logger.debug("TestListener finished");
     }
 }

@@ -30,7 +30,6 @@ import java.util.zip.ZipInputStream;
 
 import static org.sg.util.Configuration.BUFFER_SIZE;
 
-@Slf4j
 @UtilityClass
 @SuppressWarnings({"squid:S2925"})
 public class E2eUtil {

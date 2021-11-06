@@ -6,7 +6,6 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 public class Steplib {
-
     private static final Logger logger = LoggerFactory.getLogger(Steplib.class);
 
     private static final Configuration config = new Configuration();
