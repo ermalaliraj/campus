@@ -13,7 +13,7 @@ public class Configuration {
     public static final int BUFFER_SIZE = 4096;
     public static final String FILE_SEPARATOR = "\\";
     public static final String SCREENSHOT = "target/results/Screenshots/Screenshot_" + getTimeStamp() + ".PNG";
-    public static final String DRIVER_PATH = "/resources/chromedriver.exe";
+    public static final String DRIVER_PATH = "resources/chromedriver2.exe";
 
 //    public static final String SELENIUM_PROPERTIES = "selenium.properties";
 //    public static final String USERS_PROPERTIES = "users.properties";
@@ -33,9 +33,9 @@ public class Configuration {
     private final Properties properties;
 
     public Configuration() {
-        File configBaseFile = new File(Configuration.class.getClassLoader().getResource(MAIN_CONFIG_FILE_PATH).getFile());
-        File configUserFile = new File(Configuration.class.getClassLoader().getResource(USERS_FILE_PATH).getFile());
-        File environmentConfigFile = new File(Configuration.class.getClassLoader().getResource(ENVIRONMENT_CONFIG_FILE_PATH).getFile());
+        File configBaseFile = new File(this.getClass().getClassLoader().getResource(MAIN_CONFIG_FILE_PATH).getFile());
+        File configUserFile = new File(this.getClass().getClassLoader().getResource(USERS_FILE_PATH).getFile());
+        File environmentConfigFile = new File(this.getClass().getClassLoader().getResource(ENVIRONMENT_CONFIG_FILE_PATH).getFile());
         try {
             properties = new Properties();
             properties.load(new FileReader(configBaseFile));

@@ -1,16 +1,12 @@
 package org.sg.util;
 
-
 import io.cucumber.java.Scenario;
-import lombok.AccessLevel;
 import lombok.Data;
 import lombok.Getter;
-import lombok.NoArgsConstructor;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
 @Data
-@NoArgsConstructor(access = AccessLevel.PRIVATE)
-
+//@NoArgsConstructor(access = AccessLevel.PRIVATE)
 public class TestParameters {
 
     @Getter(lazy = true)
@@ -22,8 +18,12 @@ public class TestParameters {
     private XSSFWorkbook testDataFile;
     private Scenario scenario;
 
+    private TestParameters(){
+        environment = "local";
+    }
     public void reset() {
         screenshotPath = null;
         scenario = null;
+
     }
 }

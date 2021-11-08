@@ -8,14 +8,14 @@
         </layout>
     </appender>
 
-    <appender name="FILE" class="org.apache.log4j.DailyRollingFileAppender">
-        <param name="File" value="./logs/campus.log" />
-        <param name="Append" value="true" />
-        <param name="DatePattern" value=".yyyy-MM-dd" />
-        <layout class="org.apache.log4j.PatternLayout">
-            <param name="ConversionPattern" value="%d{ISO8601} [%p] [%t] [%c] .%M(%L) | %m%n" />
-        </layout>
-    </appender>
+    <!--<appender name="FILE" class="org.apache.log4j.DailyRollingFileAppender">-->
+        <!--<param name="File" value="./logs/campus.log" />-->
+        <!--<param name="Append" value="true" />-->
+        <!--<param name="DatePattern" value=".yyyy-MM-dd" />-->
+        <!--<layout class="org.apache.log4j.PatternLayout">-->
+            <!--<param name="ConversionPattern" value="%d{ISO8601} [%p] [%t] [%c] .%M(%L) | %m%n" />-->
+        <!--</layout>-->
+    <!--</appender>-->
 
     <logger name="org.apache.pdfbox">
         <level value="WARN" />
@@ -34,7 +34,7 @@
     <root>
         <level value="DEBUG" />
         <appender-ref ref="CONSOLE" />
-        <appender-ref ref="FILE" />
+        <!--<appender-ref ref="FILE" />-->
     </root>
 
 </log4j:configuration>

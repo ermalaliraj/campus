@@ -1,8 +1,14 @@
-@BaseLineScenarios
+@BaseLineScenario
 Feature: BaseLine Scenarios
 
-  @E2eAnnexTesting
-  Scenario: Checks the integrity of the Proposal during basic operations Add/Delete Article/Level
-    Given today is Sunday
-    When I ask
-    Then  close the browser
+  @HomepageTesting
+  Scenario: E2e Home Testing
+    Given navigate to "Campus" application
+    Then Home page is displayed
+    When Search student by name
+    Then Empty search result
+
+  @NewStudentTesting
+  Scenario: E2e Test Add new student
+    Given Empty search result
+#    Then  Close the browser

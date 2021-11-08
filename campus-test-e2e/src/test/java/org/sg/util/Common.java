@@ -17,8 +17,8 @@ public class Common {
 
     private static final Logger logger = LoggerFactory.getLogger(Common.class);
 
-    private static final int TIME_OUT = 60;
-    private static final int POLLING_TIME = 1;
+    public static final int TIME_OUT = 10;
+    public static final int POLLING_TIME = 1;
     private static final String IS_NOT_DISPLAYED = "The following element is NOT displayed: ";
     private static final String ELEMENT_NOTPRESENT = "The following element is NOT present: ";
     private static final String IS_NOT_DISPLAYED_VERIFIED = "The following element is NOT displayed and NOT verified: ";
@@ -27,6 +27,17 @@ public class Common {
     private static final String EXCEPTION_MESSGAE = "The exception occured in finding the following element ";
     private static final String EXCEPTION_MESSGAE_ON_FAILURE = "The exception occured during test execution";
     private static final String SCROLL_ELEMENT = "arguments[0].scrollIntoView(true);";
+
+    private static final Configuration config = new Configuration();
+
+    public static void startApp(WebDriver driver, String appName) {
+        appName = appName.toLowerCase();
+        String appUrl = config.getProperty("appUrl." + appName);
+        if (!driver.getCurrentUrl().trim().contains(appUrl)) {
+            driver.get(appUrl);
+        }
+        logger.debug("{} application url {}", appName, appUrl);
+    }
 
     // Scroll to the element till the element is visible
     public static void scrollTo(WebDriver driver, By by) {
@@ -78,11 +89,11 @@ public class Common {
         try {
             waitForPageLoadComplete(driver, TIME_OUT);
             logger.info("Waiting for {} to display", element);
-            E2eUtil.wait(1000);
+            E2eUtil.wait(TIME_OUT);
             WebDriverWait wait = new WebDriverWait(driver, TIME_OUT);
             wait.until(ExpectedConditions.presenceOfElementLocated(element));
         } catch (StaleElementReferenceException staleExcption) {
-            E2eUtil.wait(2000);
+            E2eUtil.wait(2 * TIME_OUT);
             WebDriverWait wait = new WebDriverWait(driver, TIME_OUT);
             wait.until(ExpectedConditions.presenceOfElementLocated(element));
             logger.info("There was a stale element exception, but waited");
@@ -390,11 +401,16 @@ public class Common {
         }
     }
 
+    public static WebElement isElementPresent(WebDriver driver, By by) {
+        return driver.findElement(by);
+    }
+
     public static WebElement waitForElementTobePresent(WebDriver driver, By by) {
         Wait<WebDriver> wait = new FluentWait<>(driver)
-                .withTimeout(Duration.ofSeconds(TIME_OUT))
+//                .withTimeout(Duration.ofSeconds(TIME_OUT))
                 .pollingEvery(Duration.ofSeconds(POLLING_TIME))
                 .ignoring(Exception.class);
+
         return wait.until(driver1 -> driver1.findElement(by));
     }
 

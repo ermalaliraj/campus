@@ -18,8 +18,9 @@ import java.net.URL;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Objects;
 import java.util.concurrent.TimeUnit;
+
+import static org.sg.util.Common.TIME_OUT;
 
 public class WebDriverFactory {
 
@@ -29,7 +30,6 @@ public class WebDriverFactory {
     public static final String FIREFOX = "firefox";
     public static final String IE = "internetexplorer";
     public static final String EDGE = "edge";
-    private static final int TIMEOUTDELAY = 60;
     private String testBrowser;
     private WebDriver driver;
     private static WebDriverFactory instance;
@@ -78,7 +78,7 @@ public class WebDriverFactory {
                     capability.setBrowserName(FIREFOX);
                     capability.setPlatform(Platform.ANY);
                     driver = new RemoteWebDriver(new URL(gridUrl), capability);
-                    driver.manage().timeouts().implicitlyWait(TIMEOUTDELAY, TimeUnit.SECONDS);
+                    driver.manage().timeouts().implicitlyWait(TIME_OUT, TimeUnit.SECONDS);
                     driver.manage().window().maximize();
                     driver.manage().deleteAllCookies();
                 } catch (MalformedURLException e) {
@@ -92,7 +92,7 @@ public class WebDriverFactory {
                     capability.setBrowserName("internet explorer");
                     capability.setPlatform(Platform.ANY);
                     driver = new RemoteWebDriver(new URL(gridUrl), capability);
-                    driver.manage().timeouts().implicitlyWait(TIMEOUTDELAY, TimeUnit.SECONDS);
+                    driver.manage().timeouts().implicitlyWait(TIME_OUT, TimeUnit.SECONDS);
                     driver.manage().window().maximize();
                     driver.manage().deleteAllCookies();
                 } catch (MalformedURLException e) {
@@ -106,7 +106,7 @@ public class WebDriverFactory {
                     capability.setBrowserName("MicrosoftEdge");
                     capability.setPlatform(Platform.ANY);
                     driver = new RemoteWebDriver(new URL(gridUrl), capability);
-                    driver.manage().timeouts().implicitlyWait(TIMEOUTDELAY, TimeUnit.SECONDS);
+                    driver.manage().timeouts().implicitlyWait(TIME_OUT, TimeUnit.SECONDS);
                     driver.manage().window().maximize();
                     driver.manage().deleteAllCookies();
                 } catch (MalformedURLException e) {
@@ -131,7 +131,7 @@ public class WebDriverFactory {
                     capability.setCapability("ignoreZoomSetting", true);
                     options.merge(capability);
                     driver = new RemoteWebDriver(new URL(gridUrl), options);
-                    driver.manage().timeouts().implicitlyWait(TIMEOUTDELAY, TimeUnit.SECONDS);
+                    driver.manage().timeouts().implicitlyWait(TIME_OUT, TimeUnit.SECONDS);
                     driver.manage().window().maximize();
                     driver.manage().deleteAllCookies();
                 } catch (MalformedURLException e) {
@@ -169,11 +169,11 @@ public class WebDriverFactory {
                 capability.setPlatform(Platform.ANY);
                 capability.setCapability("ignoreZoomSetting", true);
                 options.merge(capability);
-                File configBaseFile = new File(Objects.requireNonNull(Configuration.class.getClassLoader().getResource(Configuration.DRIVER_PATH)).getFile());
+                File configBaseFile = new File(Configuration.DRIVER_PATH);
                 String absolutePath = configBaseFile.getAbsolutePath();
                 System.setProperty("webdriver.chrome.driver", absolutePath);
                 driver = new ChromeDriver(options);
-                driver.manage().timeouts().implicitlyWait(TIMEOUTDELAY, TimeUnit.SECONDS);
+                driver.manage().timeouts().implicitlyWait(TIME_OUT, TimeUnit.SECONDS);
                 driver.manage().window().maximize();
         }
     }
