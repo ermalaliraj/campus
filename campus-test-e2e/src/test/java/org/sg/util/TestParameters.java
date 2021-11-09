@@ -15,7 +15,7 @@ public class TestParameters {
     private String environment;
     private String browser;
     private String mode;
-    private XSSFWorkbook testDataFile;
+//    private XSSFWorkbook testDataFile;
     private Scenario scenario;
 
     private TestParameters(){

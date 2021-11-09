@@ -8,8 +8,10 @@
     <packaging>jar</packaging>
 
     <properties>
-        <suiteXmlFile>${suiteXmlFile}</suiteXmlFile>
         <mode>${mode}</mode>
+        <environment>${environment}</environment>
+        <browser>${browser}</browser>
+        <suiteXmlFile>${suiteXmlFile}</suiteXmlFile>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <selenium.version>3.141.59</selenium.version>
         <testng.version>7.4.0</testng.version>
@@ -19,20 +21,16 @@
         <cucumberpicocontainer.version>${cucumber.version}</cucumberpicocontainer.version>
         <cucumbertestng.version>${cucumber.version}</cucumbertestng.version>
         <cucumberiojava.version>${cucumber.version}</cucumberiojava.version>
-        <commonsio.version>2.8.0</commonsio.version>
-        <commonscsv.version>1.8</commonscsv.version>
-        <lombok.version>1.18.18</lombok.version>
-        <slf4j.version>1.7.30</slf4j.version>
-        <apachepoi.version>4.1.2</apachepoi.version>
         <cucumber.output.dir>${project.basedir}/target/results/cucumber-maven-reports</cucumber.output.dir>
         <suiteXml.dir>${project.basedir}/src/test/resources/testng</suiteXml.dir>
+        <commonsio.version>2.8.0</commonsio.version>
+        <commonscsv.version>1.8</commonscsv.version>
+        <slf4j.version>1.7.30</slf4j.version>
+        <apachepoi.version>4.1.2</apachepoi.version>
         <maven-surefire-plugin.version>3.0.0-M5</maven-surefire-plugin.version>
         <maven-cucumber-reporting.version>5.4.0</maven-cucumber-reporting.version>
         <maven-compiler-plugin.version>3.8.1</maven-compiler-plugin.version>
         <maven-jar-plugin-version>3.1.0</maven-jar-plugin-version>
-        <copyScreenshots>false</copyScreenshots>
-        <browser>${browser}</browser>
-        <environment>${environment}</environment>
     </properties>
 
     <build>
@@ -63,7 +61,7 @@
                     <systemProperties>
                         <property>
                             <name>copyScreenshots</name>
-                            <value>${copyScreenshots}</value>
+                            <value>false</value>
                         </property>
                     </systemProperties>
                 </configuration>
@@ -130,12 +128,6 @@
     </build>
 
     <dependencies>
-        <dependency>
-            <groupId>org.projectlombok</groupId>
-            <artifactId>lombok</artifactId>
-            <version>${lombok.version}</version>
-            <scope>provided</scope>
-        </dependency>
         <dependency>
             <groupId>org.testng</groupId>
             <artifactId>testng</artifactId>

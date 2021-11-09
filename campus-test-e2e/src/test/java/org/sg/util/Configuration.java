@@ -13,19 +13,7 @@ public class Configuration {
     public static final int BUFFER_SIZE = 4096;
     public static final String FILE_SEPARATOR = "\\";
     public static final String SCREENSHOT = "target/results/Screenshots/Screenshot_" + getTimeStamp() + ".PNG";
-    public static final String DRIVER_PATH = "resources/chromedriver2.exe";
-
-//    public static final String SELENIUM_PROPERTIES = "selenium.properties";
-//    public static final String USERS_PROPERTIES = "users.properties";
-//    public static final String FILTERS = "filters";
-//    public static final String DRIVER_PATH = "drivers";
-//    public static final String CHROMEDRIVER = "chromedriver.exe";
-//    public static final String ENV = "env";
-//    public static final String SLASH = "/";
-//    public static final String TEST_RESOURCES_LOCATION = "src/main/resources";
-//    public static final String DATATABLE_LOCATION = TEST_RESOURCES_LOCATION + "/datatables";
-//    public static final String RESULTS_LOCATION = "target/results";
-
+    public static final String DRIVER_PATH = "resources/chromedriver.exe";
     private static final String MAIN_CONFIG_FILE_PATH = "filters/selenium.properties";
     private static final String USERS_FILE_PATH = "filters/users.properties";
     private static final String ENVIRONMENT_CONFIG_FILE_PATH = "filters/env/" + TestParameters.getInstance().getEnvironment() + ".properties";
