@@ -2,11 +2,24 @@
 *.classpath
 *.project
 *.settings
-/target/
+**/bin/
+**/.classpath
+**/.project
+**/.settings
+**/output/*
 
-.idea/
+/target/
+**/target/
+
+*.idea/
+**/.idea/
 *.iml
+
 /logs/
 /logs/*.log
+**/*.log
 
 selenium
+
+__pycache__
+data
