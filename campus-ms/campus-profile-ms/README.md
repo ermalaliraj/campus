@@ -66,5 +66,5 @@ cd ./docker
 docker-compose up -d
 ```
 
-### Link
+### Links
 - [Campus](https://github.com/ermalaliraj/campus)

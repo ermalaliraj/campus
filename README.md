@@ -11,7 +11,7 @@
         - [MongoDB](./docker/docker-compose.yml)
         - [PostgreSQL DB](./docker/docker-compose.yml)
 - Front-End
-    - React (todo)
+    - [React](./campus-react)
     - Angular (todo)
     - JSF / Primefaces (todo)
-    - End2End Automation Test Cucumber
+    - [End2End Automation Test Cucumber](./campus-test-e2e)
