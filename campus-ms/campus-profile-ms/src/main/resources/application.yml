@@ -1,0 +1,20 @@
+logging:
+    level:
+        root: INFO
+        com:
+            ea: INFO
+
+spring:
+    datasource:
+        url: jdbc:postgresql://localhost:3433/CampusDB
+        username: campus
+        password: campus
+    data:
+        jpa:
+            hibernate:
+                dialect: org.hibernate.dialect.PostgreSQLDialect
+            repositories:
+                bootstrap_mode: default
+
+server:
+    port: 8084

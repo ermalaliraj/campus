@@ -1,0 +1,2 @@
+insert into roles(uuid, creationdate, name, description) values ('01', current_timestamp, 'ADMIN_ROLE', 'Full privileges');
+insert into roles(uuid, creationdate, name, description) values ('02', current_timestamp, 'USER_ROLE', 'Limited privileges');

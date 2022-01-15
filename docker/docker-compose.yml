@@ -9,4 +9,10 @@ services:
       MONGO_INITDB_ROOT_USERNAME: campus
       MONGO_INITDB_ROOT_PASSWORD: campus
 
+  postgresql:
+    image: "postgres"
+    env_file:
+      - postgres_db.env
+    ports:
+      - 3433:5432
 

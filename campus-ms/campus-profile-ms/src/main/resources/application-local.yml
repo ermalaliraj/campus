@@ -1,0 +1,38 @@
+logging:
+    level:
+        root: INFO
+        org:
+            springframework:
+                root: DEBUG
+                context: INFO
+                web: WARN
+                data:
+                    root: DEBUG
+                    convert: INFO
+                    mongodb:
+                        driver: WARN
+                        core:
+                            MongoTemplate: DEBUG
+                    beans:
+                        factory:
+                            support: INFO
+                    boot:
+                      autoconfigure: INFO
+            hibernate:
+                root: DEBUG
+                validator: INFO
+                SQL: DEBUG
+            apache: WARN
+            mongodb:
+                driver: WARN
+        com:
+          zaxxer: INFO
+        postgresql: DEBUG
+        sun: INFO
+        javax: INFO
+
+spring:
+    datasource:
+        url: jdbc:postgresql://localhost:3433/CampusDB
+        username: campus
+        password: campus
