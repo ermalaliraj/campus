@@ -8,8 +8,6 @@ Chrome driver is present in `/resources/chromedriver.exe`
 ## Run Tests
 - `mvn clean install -Dbrowser=chrome -Dmode=local -Denvironment=local -DsuiteXmlFile=E2e_test.xml`
 
-## Run FULL Tests (not advisable!)
-- `mvn clean install -Dbrowser=chrome -Dmode=local -Denvironment=local -DsuiteXmlFile=RegressionTesting_Commission.xml`
 
 ## Test results
 On build complete, result will be present in:
