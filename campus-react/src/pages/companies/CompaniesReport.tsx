@@ -14,7 +14,7 @@ import moment from 'moment'
 
 interface Props {}
 interface State {
-  filteredUser: Company[]
+	filteredCompanies: Company[]
   activeTabKey: '1' | '2' | '3' | '4'
   paginationHelper: PaginationHelper
   filters: any
@@ -22,7 +22,7 @@ interface State {
 
 export default class CompaniesReport extends React.Component<Props, State> {
   state: State = {
-    filteredUser: [],
+		filteredCompanies: [],
     activeTabKey: '1',
     paginationHelper: new PaginationHelper(5),
     filters: {},
@@ -85,7 +85,7 @@ export default class CompaniesReport extends React.Component<Props, State> {
   }
 
   render() {
-    const { filteredUser, activeTabKey } = this.state
+    const { filteredCompanies, activeTabKey } = this.state
 
     const columns = [
       {
@@ -134,7 +134,7 @@ export default class CompaniesReport extends React.Component<Props, State> {
               >
                 <Table
                   columns={columns}
-                  dataSource={filteredUser}
+                  dataSource={filteredCompanies}
                   bordered
                   pagination={pagination}
                   scroll={scroll}
@@ -151,7 +151,7 @@ export default class CompaniesReport extends React.Component<Props, State> {
               >
                 <Table
                   columns={columns}
-                  dataSource={filteredUser}
+                  dataSource={filteredCompanies}
                   bordered
                   pagination={pagination}
                   scroll={scroll}
@@ -169,7 +169,7 @@ export default class CompaniesReport extends React.Component<Props, State> {
               >
                 <Table
                   columns={columns}
-                  dataSource={filteredUser}
+                  dataSource={filteredCompanies}
                   bordered
                   pagination={pagination}
                   scroll={scroll}

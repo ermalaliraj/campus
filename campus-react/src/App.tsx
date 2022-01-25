@@ -8,7 +8,7 @@ import 'assets/css/app.less'
 const App: React.FC = () => {
 
 	return (
-		<div className="container">hgrhrthrthtr
+		<div className="container">
 			<>
 				<Router history={history}>
 					<>

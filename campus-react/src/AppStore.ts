@@ -15,10 +15,8 @@ class AppStore {
       try {
         this.loggedUser = await Auth.loggedUser()
       } catch (error) {
-        // this.keyCloak.logout()
         console.log(error.message)
       }
-    // }
     await this.loadLanguage()
     await this.loadGoToDashboard()
     this.collapsedBarMenu = await this.loadCollapsedMenuBar()

@@ -1,6 +1,8 @@
 export default {
 	active: 'active',
   disabled: 'disabled',
+	logo: 'Logo',
+	role: 'role',
   buttons: {
     back: 'Back',
     cancel: 'Cancel',
@@ -17,6 +19,7 @@ export default {
     save: 'Save',
 		active: 'active'
   },
+
   colors: {
     not_ok: '#571a12',
     ok: '#75EBA1'

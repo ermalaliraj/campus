@@ -94,13 +94,12 @@ const SidebarLayout: React.FC<Props> = ({ children, hideTopBar, hideSideBar, hid
 
 	const logout = async () => {
 		await AppStore.setGoToDashboard(true)
-		AppStore.keyCloak?.logout()
 	}
 
 	const dropdownMenu = (
 		<Menu>
 			<Menu.Item disabled>
-				{__(T.misc.role)}: {getUserRole()}
+				{__(T.role)}: {getUserRole()}
 			</Menu.Item>
 			<Menu.Item
 				onClick={async () => {
@@ -131,7 +130,7 @@ const SidebarLayout: React.FC<Props> = ({ children, hideTopBar, hideSideBar, hid
 					{!AppStore.collapsedBarMenu && (
 						<img
 							src={require('assets/images/logo.svg')}
-							alt={__(T.misc.logo)}
+							alt={__(T.logo)}
 							style={{ width: '135px', height: 'auto', marginBottom: 25, marginTop: 21, marginLeft: 24 }}
 							onClick={() => navigate('/')}
 						/>
@@ -139,7 +138,7 @@ const SidebarLayout: React.FC<Props> = ({ children, hideTopBar, hideSideBar, hid
 					{AppStore.collapsedBarMenu && (
 						<img
 							src={require('assets/images/logo_small.svg')}
-							alt={__(T.misc.logo)}
+							alt={__(T.logo)}
 							style={{ width: '31px', height: 'auto', marginBottom: 25, marginTop: 21, marginLeft: 24 }}
 							onClick={() => navigate('/')}
 						/>
