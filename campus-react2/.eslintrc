@@ -1,0 +1,36 @@
+{
+  "parser": "babel-eslint",
+  "parserOptions": {
+    "sourceType": "module",
+    "allowImportExportEverywhere": false,
+    "codeFrame": false
+  },
+  "extends": ["airbnb", "prettier"],
+  "env": {
+    "browser": true,
+    "jest": true
+  },
+  "settings": {
+    "import/resolver": {
+      "node": {
+        "extensions": [".js", ".jsx", ".ts", ".tsx"]
+      }
+    }
+  },
+  "rules": {
+    "max-len": [
+      "error",
+      {
+        "code": 120
+      }
+    ],
+    "prefer-promise-reject-errors": ["off"],
+    "react/jsx-filename-extension": ["off"],
+    "react/jsx-one-expression-per-line": ["off"],
+    "react/prefer-stateless-function": ["off"],
+    "react/prop-types": ["warn"],
+    "no-return-assign": ["off"],
+    "no-unused-vars": "warn",
+    "no-debugger": "warn"
+  }
+}

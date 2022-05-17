@@ -2,8 +2,8 @@ import React from 'react'
 import {Route, Router, Switch} from 'react-router-dom'
 import {history} from 'router'
 import {getPublicRoutes} from 'routes'
-// import 'assets/css/antd-custom.less'
-// import 'assets/css/app.less'
+import 'assets/css/antd-custom.less'
+import 'assets/css/app.less'
 
 const App: React.FC = () => {
 

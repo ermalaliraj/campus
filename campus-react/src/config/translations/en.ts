@@ -30,7 +30,10 @@ export default {
   errors: {
     password_not_valid: 'Password needs to be 6 to 20 characters.',
     passwords_different: 'The password and confirmation password must be the same',
-		generic_be_error: 'Something went wrong, retry later or contact the administrator'
+		generic_be_error: 'Something went wrong, retry later or contact the administrator',
+    forbidden: 'You don’t have the required permissions to access this resource',
+    not_found: 'The requested resource does not exist',
+    unauthorized: 'Authentication failed.',
   },
   fields: {
     email: 'Email',
@@ -49,5 +52,7 @@ export default {
     user_enabled: 'User enabled',
     user_updated: 'User updated',
     username_required: 'Username is required',
-  }
+  },
+  loading: 'Loading...',
+  insert: 'Insert',
 }
