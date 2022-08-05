@@ -4,10 +4,16 @@ services:
     image: mongo
     restart: always
     ports:
-      - 37017:27017
+      - 27017:27017
     environment:
       MONGO_INITDB_ROOT_USERNAME: campus
       MONGO_INITDB_ROOT_PASSWORD: campus
+
+# from cmd
+# docker pull mongo
+# docker run --name mongodb -d -p 27017:27017 -e MONGO_INITDB_ROOT_USERNAME=campus -e MONGO_INITDB_ROOT_PASSWORD=campus mongo
+# connection string from client: mongodb://campus:campus@143.198.147.5:27017/admin
+
 
   postgresql:
     image: "postgres"
