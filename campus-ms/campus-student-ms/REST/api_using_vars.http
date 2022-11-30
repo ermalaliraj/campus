@@ -1,0 +1,42 @@
+var id =  "6380b518f8ab784162a49c55"
+
+### Ping API
+GET http://{{host}}:{{port}}/students/ping
+
+
+### ALL
+GET http://{{host}}:{{port}}/students
+
+> {%
+    client.global.set("studentId", response.body.content[0].id);
+%}
+
+### Insert NEW
+POST http://{{host}}:{{port}}/students
+Content-Type: application/json
+
+{ "name":"Ermal" , "surname" : "Aliraj"}
+
+#> {%
+#     client.global.set("studentId", response.body.id);
+#%}
+
+### GET by ID
+GET http://{{host}}:{{port}}/students/{{studentId}}
+
+### Replace
+PUT http://{{host}}:{{port}}/students/6380b326645a4e6ba1a46457
+Content-Type: application/json
+
+{ "name":"Ermal" , "surname" : "Aliraj2"}
+
+### Update single field
+PATCH http://{{host}}:{{port}}/students/6380b326645a4e6ba1a46457
+Content-Type: application/json
+
+{"surname" : "Aliraj2"}
+
+###
+DELETE http://{{host}}:{{port}}/students/
+
+###

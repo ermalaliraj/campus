@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Objects;
+import java.util.Optional;
 
 @Service
 public class StudentService extends BaseService<Student, StudentRepository, StudentQueryParam, StudentQueryMapper> {
@@ -31,4 +32,25 @@ public class StudentService extends BaseService<Student, StudentRepository, Stud
         }
     }
 
+    public Student update(Student student) {
+        Optional<Student> studentDbOption = repository.findById(student.getId());
+        if (!studentDbOption.isPresent()) {
+            throw new RuntimeException(String.format("Student %s not found", student.getId()));
+        }
+
+        Student studentDb = studentDbOption.get();
+        if (student.getName() != null) {
+            studentDb.setName(student.getName());
+        }
+        if (student.getSurname() != null) {
+            studentDb.setSurname(student.getSurname());
+        }
+        if (student.getRegistrationCode() != null) {
+            studentDb.setRegistrationCode(student.getRegistrationCode());
+        }
+        if (student.getRegistrationDate() != null) {
+            studentDb.setRegistrationDate(student.getRegistrationDate());
+        }
+        return repository.save(studentDb);
+    }
 }

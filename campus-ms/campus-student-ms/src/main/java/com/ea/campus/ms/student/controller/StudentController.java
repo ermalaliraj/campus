@@ -10,6 +10,8 @@ import com.ea.campus.ms.student.service.StudentService;
 import org.springframework.data.domain.Pageable;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Date;
+
 @RestController
 @RequestMapping("/students")
 public class StudentController {
@@ -22,34 +24,22 @@ public class StudentController {
         this.studentDtoMapper = studentDtoMapper;
     }
 
-    /**
-     * Get list of all students
-     *
-     * REST call:
-     * GET http://localhost:8085/students
-     */
+    @GetMapping("/ping")
+    public String ping() {
+        return "API is running successfully. Server time: " + new Date();
+    }
+
+
     @GetMapping
     public PageDto<StudentDto> getAll(StudentQueryParam queryParam, Pageable page) {
         return studentDtoMapper.toPageDto(studentService.getAll(queryParam, page));
     }
 
-    /**
-     * Get students count
-     *
-     * REST call:
-     * GET http://localhost:8085/students
-     */
     @GetMapping("/count")
     public long count(StudentQueryParam queryParam) {
         return studentService.count(queryParam);
     }
 
-    /**
-     * Get student by ID
-     *
-     * REST call:
-     * GET http://localhost:8085/students/123
-     */
     @GetMapping("/{id}")
     public StudentDto findById(@PathVariable String id) {
         Student student = studentService.getById(id)
@@ -57,51 +47,37 @@ public class StudentController {
         return studentDtoMapper.toDto(student);
     }
 
-    /**
-     * Create a new student
-     *
-     * REST call:
-     * POST http://localhost:8085/students/123
-     * Body: { name:"Ermal" , "surname" : "Aliraj"}
-     */
     @PostMapping
     public StudentDto create(@RequestBody StudentDto studentDto) {
         Student student = studentDtoMapper.toEntity(studentDto);
         return studentDtoMapper.toDto(studentService.save(student));
     }
 
-    /**
-     * Update student with id passed in parameter
-     *
-     * REST call:
-     * PUT http://localhost:8085/students/123
-     * Body: { name:"Ermal2" , "surname" : "Aliraj222"}
-     */
     @PutMapping("/{id}")
-    public void update(@PathVariable String id, @RequestBody StudentDto studentDto) {
+    public StudentDto updateFull(@PathVariable String id, @RequestBody StudentDto studentDto) {
+        studentDto.setId(id);
         Student student = studentDtoMapper.toEntity(studentDto);
-        studentService.save(student);
+        student = studentService.save(student);
+        return studentDtoMapper.toDto(student);
     }
 
-    /**
-     * Delete all students
-     *
-     * REST call:
-     * DELETE http://localhost:8085/students
-     */
-    @DeleteMapping
-    public void deleteAll() {
-        studentService.deleteAll();
+    @PatchMapping("/{id}")
+    public StudentDto updateSingle(@PathVariable String id, @RequestBody StudentDto studentDto) {
+        studentDto.setId(id);
+        Student student = studentDtoMapper.toEntity(studentDto);
+        student = studentService.update(student);
+        return studentDtoMapper.toDto(student);
     }
 
-    /**
-     * Delete the student with ID passed in parameter
-     * REST call:
-     * DELETE http://localhost:8085/students/123
-     */
     @DeleteMapping("/{id}")
     public void deleteById(@PathVariable String id) {
         studentService.deleteById(id);
+    }
+
+    //TODO not safe. Here only for test purpose
+    @DeleteMapping
+    public void deleteAll() {
+        studentService.deleteAll();
     }
 
 }

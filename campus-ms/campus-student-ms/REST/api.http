@@ -1,0 +1,38 @@
+### Ping API
+GET http://{{host}}:{{port}}/students/ping
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJwdWJsaWNLZXkifQ.cvOnlFqmybiffADfwy-LiUVBqOLxyl3aZrzHlnyL63U
+
+### ALL
+GET http://{{host}}:{{port}}/students
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJwdWJsaWNLZXkifQ.cvOnlFqmybiffADfwy-LiUVBqOLxyl3aZrzHlnyL63U
+
+### Insert NEW
+POST http://{{host}}:{{port}}/students
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJwdWJsaWNLZXkifQ.cvOnlFqmybiffADfwy-LiUVBqOLxyl3aZrzHlnyL63U
+Content-Type: application/json
+
+{ "name":"Ermal" , "surname" : "Aliraj"}
+
+### GET by ID
+GET http://{{host}}:{{port}}/students/6380ba78a171f82d30c5b4ea
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJwdWJsaWNLZXkifQ.cvOnlFqmybiffADfwy-LiUVBqOLxyl3aZrzHlnyL63U
+
+### Replace
+PUT http://{{host}}:{{port}}/students/6380ba78a171f82d30c5b4ea
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJwdWJsaWNLZXkifQ.cvOnlFqmybiffADfwy-LiUVBqOLxyl3aZrzHlnyL63U
+Content-Type: application/json
+
+{ "name":"Ermal" , "surname" : "Aliraj2"}
+
+### Update single field
+PATCH http://{{host}}:{{port}}/students/6380ba78a171f82d30c5b4ea
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJwdWJsaWNLZXkifQ.cvOnlFqmybiffADfwy-LiUVBqOLxyl3aZrzHlnyL63U
+Content-Type: application/json
+
+{"surname" : "Aliraj2"}
+
+###
+DELETE http://{{host}}:{{port}}/students/
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJwdWJsaWNLZXkifQ.cvOnlFqmybiffADfwy-LiUVBqOLxyl3aZrzHlnyL63U
+
+###

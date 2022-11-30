@@ -14,11 +14,11 @@ services:
 # docker run --name mongodb -d -p 27017:27017 -e MONGO_INITDB_ROOT_USERNAME=campus -e MONGO_INITDB_ROOT_PASSWORD=campus mongo
 # connection string from client: mongodb://campus:campus@143.198.147.5:27017/admin
 
-
-  postgresql:
-    image: "postgres"
-    env_file:
-      - postgres_db.env
-    ports:
-      - 3433:5432
+#
+#  postgresql:
+#    image: "postgres"
+#    env_file:
+#      - postgres_db.env
+#    ports:
+#      - 3433:5432
 
